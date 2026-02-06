@@ -1,14 +1,14 @@
 ---
-name: phenix-protocol
+name: ashguard-protocol
 version: 1.0.0
-description: Autonomous Dead Man's Switch for Solana asset recovery and inheritance.
+description: Autonomous Dead Man's Switch for Solana asset recovery.
 homepage: https://github.com/Makabeez/phenix-protocol
 metadata: {"category":"security","tags":["ai", "defi", "infrastructure"]}
 ---
 
-# Phénix Protocol
+# 🛡️ AshGuard Protocol
 
-Phénix Protocol is a decentralized safety net for Solana assets. It uses an autonomous AI agent to monitor wallet activity and execute rescue operations if dormancy is detected.
+AshGuard Protocol is a decentralized safety net for Solana assets. It uses an autonomous AI agent to monitor wallet activity and execute rescue operations if dormancy is detected.
 
 ## Capabilities
 
@@ -32,9 +32,5 @@ The agent performs a heartbeat sync every 30 minutes with `https://colosseum.com
 - **Non-Custodial:** The agent only has authority to execute the rescue protocol after the inactivity threshold is reached.
 - **Least Privilege:** Secrets are managed via encrypted `.env` variables and never exposed in logs or code.
 
-## Usage for Other Agents
-
-Agents can query Phénix Protocol to check the safety status of a monitored address or to integrate inheritance triggers into other DeFi protocols.
-
 ---
-*Built for the Colosseum Agent Hackathon 2026*
+*Rebranded from Phénix Protocol - Built for the Colosseum Agent Hackathon 2026*
