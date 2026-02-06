@@ -1,7 +1,7 @@
-# 🐦 Phénix Protocol: Autonomous Dead Man's Switch for Solana
+# 🐦 AshGuard Protocol: Autonomous Dead Man's Switch for Solana
 
 ## 💡 Overview
-Phénix Protocol is an AI-driven autonomous executor designed to solve the problem of digital asset inheritance and recovery on Solana. If a user's wallet remains inactive for a set period, the Phénix agent independently executes a rescue protocol to secure and transfer assets.
+AshGuard Protocol is an AI-driven autonomous executor designed to solve the problem of digital asset inheritance and recovery on Solana. If a user's wallet remains inactive for a set period, the Phénix agent independently executes a rescue protocol to secure and transfer assets.
 
 ## 🚀 Key Features
 - **Intelligent Monitoring:** Analyzes on-chain activity to distinguish between long-term holding and wallet abandonment.
