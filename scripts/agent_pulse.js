@@ -1,7 +1,7 @@
 const { ethers } = require("ethers");
 
-// Configuration des adresses et clés
-const CONTRACT_ADDRESS = "0x860368940C29f939e09968478441991A570db3fd";
+const RAW_ADDRESS = "0x860368940c29f939e09968478441991a570db3fd";
+const CONTRACT_ADDRESS = ethers.getAddress(RAW_ADDRESS.toLowerCase()); 
 const BURNER_WALLET_PRIVATE_KEY = process.env.PRIVATE_KEY;
 const RPC_URL = "https://testnet-rpc.monad.xyz";
 
@@ -18,28 +18,25 @@ async function postToMoltbook(statusMessage) {
 }
 
 async function runPulseAgent() {
+    if (!BURNER_WALLET_PRIVATE_KEY) {
+        console.error("❌ PRIVATE_KEY manquante sur Ubuntu !");
+        process.exit(1);
+    }
     const provider = new ethers.JsonRpcProvider(RPC_URL);
     const wallet = new ethers.Wallet(BURNER_WALLET_PRIVATE_KEY, provider);
     const contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, wallet);
 
-    console.log("🚀 Monad Pulse Agent Started...");
-    console.log(`📡 Monitoring contract: ${CONTRACT_ADDRESS}`);
-
+    console.log("🚀 Monad Pulse démarré sur Ubuntu Natif...");
     setInterval(async () => {
         try {
-            console.log("⚡ Checking market conditions...");
             const tx = await contract.triggerPulse();
-            console.log(`✅ Pulse Triggered! Hash: ${tx.hash}`);
+            console.log(`✅ Pulse validé ! Hash: ${tx.hash}`);
             await tx.wait();
-
-            const statusUpdate = `Liquidity Sentinel Pulse: OK ⚡ | Transaction confirmed on Monad Testnet at Block ${tx.blockNumber}. All systems nominal.`;
-            await postToMoltbook(statusUpdate);
-
+            await postToMoltbook("Sentinel Pulse: OK ⚡ | Running on Ubuntu.");
         } catch (error) {
-            console.error("❌ Error during agent pulse:", error.reason || error.message);
-            await postToMoltbook("⚠️ Agent Alert: Connection lag detected on Parallel EVM slots. Retrying in 30s...");
+            console.error("❌ Erreur :", error.message);
+            await postToMoltbook("⚠️ Échec du Pulse. Vérifiez le solde.");
         }
     }, 30000);
 }
-
 runPulseAgent();

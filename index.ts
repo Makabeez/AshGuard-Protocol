@@ -20,7 +20,7 @@ async function initializeAgent() {
         process.env.OPENAI_API_KEY
     );
 
-    console.log("🐦 Phénix Protocol: DEPLOYED");
+    console.log("🛡️ AshGuard Protocol: DEPLOYED");
     console.log(`Monitoring wallet: ${WALLET_TO_MONITOR}`);
 
     async function performHeartbeat() {
@@ -54,7 +54,7 @@ async function initializeAgent() {
     async function checkDormancy() {
         try {
             console.log("Checking last transaction status...");
-            // Logic: Monitor wallet and trigger rescue if dormancy threshold is reached
+            // Autonomous logic for rescue if dormancy detected
             console.log("Agent is standing by. Conditions for rescue not yet met.");
         } catch (error) {
             console.error("Error monitoring wallet:", error);
